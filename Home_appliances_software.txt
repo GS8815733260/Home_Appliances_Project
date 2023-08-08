@@ -1,0 +1,329 @@
+#include<iostream>
+#include<ctime>
+#include<conio.h>
+using namespace std;
+int main(){
+    char start;
+    float shop(void);
+    char choice;
+    //clrscr();
+    startL:
+        
+        cout<<"Please press H to start Shopping for Home Appliances"<<endl;
+        start:
+            cin>>start;
+
+            if(start=='h'||start=='H'){
+                float total=shop();
+                time_t t=time(NULL);
+                tm *tPtr=localtime(&t);
+
+                cout<<"Bill Date :";
+                cout<<tPtr->tm_mday<<"/";
+                cout<<1+tPtr->tm_mon<<"/";
+                cout<<1900+tPtr->tm_year<<"\n";
+                cout<<"Bill time : "<<(tPtr->tm_hour)<<":"<<(tPtr->tm_min)<<":"<<(tPtr->tm_sec)<<endl;
+                cout<<"Total Bill Amount :"<<total<<"\n";
+                if(total>=50000 && total<100000){
+                    total-=(0.05*total);
+                    cout<<"Total Discount : 5%"<<"\n";
+                }
+                else if(total>=100000 && total<125000){
+                    total-=(0.1*total);
+                    cout<<"Total Discount : 10%"<<"\n";
+                }
+                 else if(total>=125000 && total<150000){
+                    total-=(0.25*total);
+                    cout<<"Total Discount : 25%"<<"\n";
+                }
+                 else if(total>=150000){
+                    total-=(0.5*total);
+                    cout<<"Total Discount : 50%"<<"\n";
+                }
+                cout<<"Total Bill amount is :"<<total<<"\n";
+                Again: 
+                    cout<<"Do you wamt shopping again y or n"<<"\n";
+                    cin>>choice ;
+                    if(choice=='y'||choice=='Y'){
+                        goto startL;
+                    }
+                    else if(choice=='n'||choice=='N'){
+                        cout<<"Thanks for Shopping "<<"\n";
+                    }
+                    else{
+                        cout<<"You have entered the wrong option, Please press H\n";
+                        goto Again;
+                    }
+            }
+            else{
+                cout<<"You have entered the wrong option, Please press H to start again\n";
+                goto start;
+            }
+            getch();
+}
+          
+             float shop(){
+                shop: 
+                   char choice,product;
+                int quantity;
+                float bill=0;
+                itemLevel:
+                     cout<<"**********Welcome**********\n";
+                     cout<<"__Please follow the instructions__\n";
+                     cout<<"| 1) Please enter r to order Refrigerator\n";
+                     cout<<"| 2) Please enter w to order Washing Machine\n";
+                     cout<<"| 3) Please enter t to order Television\n";
+                     cout<<"| 4) Please enter m to order Microwave\n";
+                     cout<<"| 5) Please enter a to order Air conditioner\n";
+                     cin>>choice;
+
+                     if(choice=='r'||choice=='R'||choice=='W'||choice=='w'||choice=='t'||choice=='T'||choice=='m'||choice=='M'||choice=='A'||choice=='a')
+                     {
+                        if(choice=='r'||choice=='R'){
+                            refiL:
+                            cout<<"_______Refrigerator Detaials_______\n";
+                            cout<<"| 1) Whirlpool  => Price: 40000 |\n";
+                            cout<<"| 2) Samsung    => Price: 25000 |\n";
+                            cout<<"| 3) Haier      => Price: 20000 |\n";
+                            cout<<"| 4) Voltas     => Price: 18000 |\n";
+                            cout<<"| 5) Godrej     => Price: 30000 |\n";
+                            cout<<"| 6) Panasonic  => Price: 35000 |\n";
+
+                            cout<<"Please enter your choice :\n";
+                            cin>>product;
+                            if(product == '1'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*40000;
+                            }
+                            else if(product == '2'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*25000;
+                            }
+                            if(product == '3'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*20000;
+                            }
+                            else if(product == '4'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*18000;
+                            }
+                             else if(product == '5'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*30000;
+                            }
+                            else if(product == '6'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*35000;
+                            }
+                            else {
+                                cout<<"You have entered the wrong option, Please try again\n";
+                                goto refiL;
+                            }
+
+                        }
+                        if(choice=='w'||choice=='W'){
+                            washmachineL:
+                            cout<<"_______Washing Machine Detaials_______\n";
+                            cout<<"| 1) Bosch      => Price: 40000 |\n";
+                            cout<<"| 2) LG         => Price: 25000 |\n";
+                            cout<<"| 3) IFB        => Price: 20000 |\n";
+                            cout<<"| 4) Haier      => Price: 58000 |\n";
+                            cout<<"| 5) Maytag     => Price: 30000 |\n";
+                            cout<<"| 6) Samsung    => Price: 45000 |\n";
+
+                            cout<<"Please enter your choice :\n";
+                            cin>>product;
+                            if(product == '1'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*40000;
+                            }
+                            else if(product == '2'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*25000;
+                            }
+                            else if(product == '3'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*20000;
+                            }
+                            else if(product == '4'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*58000;
+                            }
+                             else if(product == '5'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*30000;
+                            }
+                            else if(product == '6'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*45000;
+                            }
+                            else {
+                                cout<<"You have entered the wrong option, Please try again\n";
+                                goto washmachineL;
+                            }
+
+                        }
+                        if(choice=='t'||choice=='T'){
+                            televisionL:
+                            cout<<"_______Television Detaials_______\n";
+                            cout<<"| 1) Sony       => Price: 97000 |\n";
+                            cout<<"| 2) LG         => Price: 70000 |\n";
+                            cout<<"| 3) TCL        => Price: 58000 |\n";
+                            cout<<"| 4) Panasonic  => Price: 69000 |\n";
+                            cout<<"| 5) Sharp      => Price: 80000 |\n";
+                            cout<<"| 6) Samsung    => Price: 75000 |\n";
+
+                            cout<<"Please enter your choice :\n";
+                            cin>>product;
+                            if(product == '1'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*97000;
+                            }
+                            else if(product == '2'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*70000;
+                            }
+                            else if(product == '3'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*58000;
+                            }
+                            else if(product == '4'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*69000;
+                            }
+                            else if(product == '5'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*80000;
+                            }
+                            else if(product == '6'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*75000;
+                            }
+                            else {
+                                cout<<"You have entered the wrong option, Please try again\n";
+                                goto televisionL;
+                            }
+
+                        }
+                        if(choice=='m'||choice=='M'){
+                            MicrowaveL:
+                            cout<<"_______Microwave Detaials_______\n";
+                            cout<<"| 1) LG         => Price: 40000 |\n";
+                            cout<<"| 2) Panasonic  => Price: 35000 |\n";
+                            cout<<"| 3) IFB        => Price: 30000 |\n";
+                            cout<<"| 4) Whirlpool  => Price: 48000 |\n";
+                            cout<<"| 5) Bajaj      => Price: 30000 |\n";
+                            cout<<"| 6) Samsung    => Price: 35000 |\n";
+
+                            cout<<"Please enter your choice :\n";
+                            cin>>product;
+                            if(product == '1'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*40000;
+                            }
+                            else if(product == '2'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*35000;
+                            }
+                            else if(product == '3'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*30000;
+                            }
+                            else if(product == '4'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*48000;
+                            }
+                             else if(product == '5'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*30000;
+                            }
+                            else if(product == '6'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*35000;
+                            }
+                            else {
+                                cout<<"You have entered the wrong option, Please try again\n";
+                                goto MicrowaveL;
+                            }
+
+                        }
+                        if(choice=='a'||choice=='A'){
+                            airL:
+                            cout<<"_______Air conditioner Detaials_______\n";
+                            cout<<"| 1) Daikin      => Price: 14000 |\n";
+                            cout<<"| 2) Hitachi     => Price: 8000 |\n";
+                            cout<<"| 3) Lloyd        => Price: 17000 |\n";
+                            cout<<"| 4) O General   => Price: 22000 |\n";
+                            cout<<"| 5) Voltas      => Price: 19000 |\n";
+                            cout<<"| 6) Samsung     => Price: 12000 |\n";
+
+                            cout<<"Please enter your choice :\n";
+                            cin>>product;
+                            if(product == '1'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*14000;
+                            }
+                            else if(product == '2'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*8000;
+                            }
+                            else if(product == '3'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*17000;
+                            }
+                            else if(product == '4'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*22000;
+                            }
+                             else if(product == '5'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*19000;
+                            }
+                            else if(product == '6'){
+                                cout<<"Please enter the quantity of product\n";
+                                cin>>quantity;
+                                bill+=quantity*12000;
+                            }
+                            else {
+                                cout<<"You have entered the wrong option, Please try again\n";
+                                goto airL;
+                            }
+
+                        }
+                    
+                     }
+                     else{
+                        cout<<"You have entered the wrong option, Please try again\n";
+                        goto shop;
+                     } 
+                     return bill;
+                     }
